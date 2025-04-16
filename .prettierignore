@@ -1,0 +1,16 @@
+dist/
+.local
+.vscode/
+*.log
+*.tmp
+*.bak
+*.swp
+node_modules/
+**/*.svg
+**/*.sh
+**/*.md
+*.json
+*.yaml
+/public/*
+*.d.ts
+eslint.config.js

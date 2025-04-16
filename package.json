@@ -1,0 +1,49 @@
+{
+  "name": "vite-react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "tsc -b && vite build",
+    "lint": "eslint . && npx prettier . --write",
+    "lint:fix": "eslint . --fix && npx prettier . --write",
+    "preview": "vite preview",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
+    "commitlint": "commitlint --config commitlint.config.cjs -e -V",
+    "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\""
+  },
+  "dependencies": {
+    "antd-mobile": "^5.39.0",
+    "antd-mobile-icons": "^0.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@eslint/js": "^9.21.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.5.1",
+    "prettier": "^3.5.3",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.2.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,json,css,less,md,tsx}": [
+      "pnpm run format"
+    ]
+  }
+}
