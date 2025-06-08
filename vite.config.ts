@@ -10,4 +10,16 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
+  server: {
+    port: 5173,
+    cors: true,
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    proxy: {
+      '/api/': {
+        target: 'http://api.mazhanghua.com/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 })

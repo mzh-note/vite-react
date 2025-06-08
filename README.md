@@ -71,11 +71,6 @@ pnpm run lint
 ```
 项目安装涉及主要依赖有：
 ```shell
-# add antd-mobile
-pnpm add antd-mobile
-
-pnpm add antd-mobile-icons
-
 # 安装 zustand
 pnpm add zustand
 

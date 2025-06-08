@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import useStore from '@/store/useStore.ts'
+import { getKey } from '@/api/auth.ts'
 
 const useQueryApi = () => {
   const [loading, setLoading] = useState(true)
@@ -7,15 +8,16 @@ const useQueryApi = () => {
   const { status } = useStore()
   const isFirstRender = useRef(true)
 
-  const query = () => {
-    console.log('query api。。。')
+  const query = async () => {
+    const res = await getKey()
+    console.log(res?.data)
   }
   // useEffect(() => {
   //   console.log('无依赖，默认执行一次query')
   //   query()
   // }, [])
   useEffect(() => {
-    console.log('isFirstRender.current', isFirstRender.current)
+    // console.log('isFirstRender.current', isFirstRender.current)
     // 仅在条件变化且非首次渲染时触发初始化，可使用useRef标记初始状态
     if (isFirstRender.current) {
       isFirstRender.current = false
@@ -25,8 +27,8 @@ const useQueryApi = () => {
     //   console.log(`依赖状态${status}，每次执行，初始化也会执行`)
     //   query()
     // }
-    console.log(`依赖状态${status}，每次执行，初始化也会执行`)
-    query()
+    // console.log(`依赖状态${status}，每次执行，初始化也会执行`)
+    // query()
   }, [status])
   return {
     query,
